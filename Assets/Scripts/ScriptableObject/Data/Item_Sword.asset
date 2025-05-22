@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Item_Sword
   m_EditorClassIdentifier: 
   displayName: "\uCE7C"
-  description: "\uC0AC\uC6A9\uC2DC ?\uAC00 \uC99D\uAC00 \uD569\uB2C8\uB2E4."
+  description: "\uC0AC\uC6A9\uC2DC \uC774\uB3D9\uC18D\uB3C4\uAC00 \uC99D\uAC00 \uD569\uB2C8\uB2E4."
   icon: {fileID: 21300000, guid: fb7c5ae6c9b7fbd49b2515656d8bf513, type: 3}
   type: 0
   prefab: {fileID: 11293823936488195, guid: 86d1efa1f80c2dd40a4e63fbb1b39618, type: 3}
   canStack: 1
   maxStackAmount: 10
-  consumables: []
+  consumables:
+  - type: 3
+    value: 5
+    duration: 10

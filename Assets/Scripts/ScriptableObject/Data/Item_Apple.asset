@@ -19,4 +19,6 @@ MonoBehaviour:
   prefab: {fileID: 7004773895503292903, guid: f3fa5ea1a9afe87448e4ed661cc0616c, type: 3}
   canStack: 1
   maxStackAmount: 10
-  consumables: []
+  consumables:
+  - type: 0
+    value: 10

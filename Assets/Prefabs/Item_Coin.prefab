@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4423686402172128362}
   - component: {fileID: 986624925818534998}
   - component: {fileID: 1780792568215284551}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Item_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,8 +55,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.2898612
-  m_Center: {x: -0.005350113, y: 0, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4423686402172128362
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 6776681805097172519}
   - component: {fileID: 8882316781306613552}
   - component: {fileID: 6245757687710643506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

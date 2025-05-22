@@ -1,25 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
+    public float moveSpeed = 5f;
     public float jumpForce;
     private Vector2 curMovementInput;
     public LayerMask groundLayer;
     private bool isGrounded = true;
+    
+    [Header("Camera")]
+    public CinemachineFreeLook freeLook;
 
     private Rigidbody rb;
     private PlayerAnimation playerAnimation;
+    private Interaction interaction;
+    public Action inventory;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         playerAnimation = GetComponent<PlayerAnimation>();
+        interaction = GetComponent<Interaction>();
     }
 
     void Start()
@@ -40,11 +47,6 @@ public class PlayerController : MonoBehaviour
                 playerAnimation?.PlayGrounded();
             }
         }
-    }
-
-    private void LateUpdate()
-    {
-        // Look();
     }
 
     void Move()
@@ -129,5 +131,37 @@ public class PlayerController : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void OnInteractInput(InputAction.CallbackContext context)
+    {
+        interaction.InteractInput(context);
+    }
+
+    public void OnInventoryInput(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            inventory?.Invoke();
+            ToggleCursor();
+        }
+    }
+
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
+    public void Boost(float amount, float duration)
+    {
+        StartCoroutine(BoostSpeed(amount, duration));
+    }
+
+    private IEnumerator BoostSpeed(float amount, float duration)
+    {
+        moveSpeed += amount;
+        yield return new WaitForSeconds(duration);
+        moveSpeed -= amount;
     }
 }

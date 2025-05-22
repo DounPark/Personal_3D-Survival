@@ -23,3 +23,4 @@ MonoBehaviour:
   - type: 3
     value: 5
     duration: 10
+  isInstantUse: 1

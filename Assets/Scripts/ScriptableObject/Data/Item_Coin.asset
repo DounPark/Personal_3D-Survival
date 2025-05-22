@@ -22,3 +22,5 @@ MonoBehaviour:
   consumables:
   - type: 2
     value: 1
+    duration: 0
+  isInstantUse: 1

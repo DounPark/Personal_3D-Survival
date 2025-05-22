@@ -42,4 +42,6 @@ public class ItemData : ScriptableObject
     [Header("Consumable")]
     public ItemDataConsumable[] consumables;
     
+    [Header("Flags")]
+    public bool isInstantUse = false;
 }

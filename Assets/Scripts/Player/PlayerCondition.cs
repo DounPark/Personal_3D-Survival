@@ -11,7 +11,7 @@ public class PlayerCondition : MonoBehaviour
     
     void Update()
     {
-        // stamina.Add(stamina.passiveValue * Time.deltaTime);
+        stamina.Add(stamina.passiveValue * Time.deltaTime);
 
         if (health.curValue <= 0f)
         {
@@ -32,5 +32,16 @@ public class PlayerCondition : MonoBehaviour
     public void Die()
     {
         Debug.Log("Die");
+    }
+
+    public bool UseStamina(float amount)
+    {
+        if (stamina.curValue - amount < 0f)
+        {
+            return false;
+        }
+        
+        stamina.Subtract(amount);
+        return true;
     }
 }

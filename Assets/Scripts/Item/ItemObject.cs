@@ -12,7 +12,6 @@ public class ItemObject : MonoBehaviour, IInteractable
 {
     public ItemData data;
 
-
     public string GetInteractPrompt()
     {
         string str = $"{data.displayName} \n {data.description}";
@@ -21,8 +20,27 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        CharacterManager.Instance.Player.itemData = data;
-        CharacterManager.Instance.Player.addItem?.Invoke();
+        if (data.isInstantUse)
+        {
+            foreach (var effect in data.consumables)
+            {
+                switch (effect.type)
+                {
+                    case ConsumableType.Score:
+                        CharacterManager.Instance.Player.AddScore((int)effect.value);
+                        break;
+                    case ConsumableType.Speed:
+                        CharacterManager.Instance.Player.controller.Boost(effect.value, effect.duration);
+                        break;
+                }
+            }
+        }
+        else
+        {
+            CharacterManager.Instance.Player.itemData = data;
+            CharacterManager.Instance.Player.addItem?.Invoke();
+        }
+        
         Destroy(gameObject);
     }
 }

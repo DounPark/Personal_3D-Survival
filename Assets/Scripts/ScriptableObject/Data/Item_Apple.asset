@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item_Apple
   m_EditorClassIdentifier: 
   displayName: "\uC0AC\uACFC"
-  description: "\uC12D\uCDE8\uC2DC ?\uAC00 \uC99D\uAC00 \uD569\uB2C8\uB2E4."
+  description: "\uC12D\uCDE8\uC2DC \uCCB4\uB825\uC744 \uC18C\uB7C9 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
   icon: {fileID: 21300000, guid: 3e52bc11addf3e842b71878fc90f6a1b, type: 3}
   type: 0
   prefab: {fileID: 7004773895503292903, guid: f3fa5ea1a9afe87448e4ed661cc0616c, type: 3}
@@ -22,3 +22,5 @@ MonoBehaviour:
   consumables:
   - type: 0
     value: 10
+    duration: 0
+  isInstantUse: 0

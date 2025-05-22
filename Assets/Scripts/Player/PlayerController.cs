@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 curMovementInput;
     public LayerMask groundLayer;
     private bool isGrounded = true;
+    public float jumpStamina = 20f;
     
     [Header("Camera")]
     public CinemachineFreeLook freeLook;
@@ -91,10 +92,15 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && IsGrounded())
-        {
-            Jump();
-        }
+        if (context.phase == InputActionPhase.Started)
+            return;
+        
+        if (!IsGrounded())
+            return;
+        if (!CharacterManager.Instance.Player.condition.UseStamina(jumpStamina))
+            return;
+        
+        Jump();
     }
 
     public void OnRoll(InputAction.CallbackContext context)
@@ -107,8 +113,6 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (!IsGrounded()) return;
-        
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         playerAnimation?.PlayJump();
     }

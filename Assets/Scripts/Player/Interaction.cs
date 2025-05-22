@@ -29,6 +29,9 @@ public class Interaction : MonoBehaviour
         {
             laskCheckTime = Time.time;
             
+            // Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+            
+            
             Ray ray = new Ray(origin: rayOrigin.position, direction:rayOrigin.forward);
             
             Debug.DrawRay(ray.origin, ray.direction*maxCheckDistance, Color.red, 1f);

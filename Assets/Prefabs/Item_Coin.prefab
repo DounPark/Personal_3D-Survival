@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7971124096437960750}
   - component: {fileID: 6951101265150765847}
-  - component: {fileID: 4423686402172128362}
   - component: {fileID: 986624925818534998}
   - component: {fileID: 1780792568215284551}
   m_Layer: 7
@@ -57,33 +56,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &4423686402172128362
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4626484719531997782}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &986624925818534998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +82,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 0a6e148873d4d014b8d56fe93dfdcc93, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

@@ -70,8 +70,12 @@ public class PlayerController : MonoBehaviour
         if (curMovementInput != Vector2.zero)
         {
             Vector3 moveDirFlat = new Vector3(dir.x, 0f, dir.z);
-            Quaternion toRotation = Quaternion.LookRotation(moveDirFlat);
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+
+            if (moveDirFlat != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(moveDirFlat);
+                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 10f * Time.deltaTime);
+            }
         }
         
         bool isMoving = curMovementInput != Vector2.zero;

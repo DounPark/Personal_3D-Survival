@@ -48,12 +48,6 @@ public class UIInventory : MonoBehaviour
         ClearSelectedItemWindow();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void ClearSelectedItemWindow()
     {
         selectedItemName.text = string.Empty;
@@ -196,12 +190,12 @@ public class UIInventory : MonoBehaviour
                     case ConsumableType.Stamina:
                         condition.Drink(data.value);
                         break;
-                    case ConsumableType.Speed:
-                        controller.Boost(data.value, data.duration);
-                        break;
-                    case ConsumableType.Score:
-                        CharacterManager.Instance.Player.AddScore((int)data.value);
-                        break;
+                    // case ConsumableType.Speed:
+                    //     controller.Boost(data.value, data.duration);
+                    //     break;
+                    // case ConsumableType.Score:
+                    //     CharacterManager.Instance.Player.AddScore((int)data.value);
+                    //     break; // ItemObject에서 interact 하자마자 소모됨.
                 }
             }
             RemoveSelectedItem();
